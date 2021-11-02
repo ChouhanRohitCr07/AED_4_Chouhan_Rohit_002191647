@@ -27,12 +27,15 @@ public class MainJFrame extends javax.swing.JFrame {
     
     
     
+    
+    
     public MainJFrame() {
         initComponents();
         clinicSystem = new ClinicSystem();
         personDirectory = clinicSystem.getPersonDirectory();
         patientDirectory = clinicSystem.getPatientDirectory();
         vitalSignHistory = clinicSystem.getVitalSignHistory();
+        
         
     }
 
@@ -122,7 +125,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(jBtnAddPatient)
                 .addGap(19, 19, 19)
                 .addComponent(btnViewPatientDirectory)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(398, Short.MAX_VALUE))
         );
 
         jControlPaneLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnViewPersonDirectory, jBtnCreatePerson});
@@ -138,14 +141,14 @@ public class MainJFrame extends javax.swing.JFrame {
             jMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane)
+                .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1080, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jMainPanelLayout.setVerticalGroup(
             jMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane)
+                .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -166,10 +169,12 @@ public class MainJFrame extends javax.swing.JFrame {
     private void jBtnCreatePersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCreatePersonActionPerformed
         // TODO add your handling code here:
         
-        CreatePersonJPanel createPersonJPanel = new CreatePersonJPanel(jWorkAreaPane, personDirectory);
-        jWorkAreaPane.add("CreatePersonJPanel", createPersonJPanel);
-        CardLayout layout = (CardLayout)jWorkAreaPane.getLayout();
-        layout.next(jWorkAreaPane);
+//        CreatePersonJPanel createPersonJPanel = new CreatePersonJPanel(jWorkAreaPane, personDirectory);
+//        jWorkAreaPane.add("CreatePersonJPanel", createPersonJPanel);
+//        CardLayout layout = (CardLayout)jWorkAreaPane.getLayout();
+//        layout.next(jWorkAreaPane);
+        CreatePersonJPanel createPersonJPanel= new CreatePersonJPanel(personDirectory);
+        jSplitPane.setRightComponent(createPersonJPanel);
         
     }//GEN-LAST:event_jBtnCreatePersonActionPerformed
 
@@ -183,11 +188,14 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btnViewPatientDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDirectoryActionPerformed
         // TODO add your handling code here:
+        ViewPatientDirectoryJPanel viewPatientDirectoryJPanel = new ViewPatientDirectoryJPanel(vitalSignHistory);
+        jSplitPane.setRightComponent(viewPatientDirectoryJPanel);
+        
     }//GEN-LAST:event_btnViewPatientDirectoryActionPerformed
 
     private void jBtnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddPatientActionPerformed
         // TODO add your handling code here:
-        AddPatientJPanel addPatientJPanel= new AddPatientJPanel(personDirectory, patientDirectory, vitalSignHistory);
+        AddPatientJPanel addPatientJPanel= new AddPatientJPanel(vitalSignHistory);
         jSplitPane.setRightComponent(addPatientJPanel);
         
     }//GEN-LAST:event_jBtnAddPatientActionPerformed

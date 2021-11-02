@@ -25,28 +25,16 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AddPatientJPanel
      */
-    PersonDirectory personDirectory;
-    PatientDirectory patientDirectory;
-    Patient cs;
+    
+    int row, column;
+    DefaultTableModel defaultTableModel;
     VitalSignHistory vitalSignHistory;
     
-   
-//    ArrayList<Patient> patientArrayList;
-    DefaultTableModel defaultTableModel;
-    int row, column;  
     
-    
-    public AddPatientJPanel(PersonDirectory personDirectory,PatientDirectory patientDirectory,VitalSignHistory vitalSignHistory) {
+    public AddPatientJPanel(VitalSignHistory vitalSignHistory) {
         initComponents();
-        this.personDirectory= personDirectory;
-        this.patientDirectory= patientDirectory;
-        this.vitalSignHistory=vitalSignHistory;
-        
-        populatePersonTable();
-        //populatePatientTable();
+        this.vitalSignHistory = vitalSignHistory;
     }
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,22 +65,21 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         jRadioButtonPFemale = new javax.swing.JRadioButton();
         jRadioButtonPOthers = new javax.swing.JRadioButton();
         lblBodyTemperature2 = new javax.swing.JLabel();
-        lblBloodPressure2 = new javax.swing.JLabel();
+        lblBloodPressureSystolic = new javax.swing.JLabel();
         lblHeartRate2 = new javax.swing.JLabel();
         lblBodyWeight2 = new javax.swing.JLabel();
         lblDate2 = new javax.swing.JLabel();
         txtVisitDate = new javax.swing.JTextField();
         txtPatientBodyWeight = new javax.swing.JTextField();
         txtPatientHeartRate = new javax.swing.JTextField();
-        txtPatientBloodPressure = new javax.swing.JTextField();
+        txtPatientBloodPressureSystolic = new javax.swing.JTextField();
         txtPatientBodyTemperature = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAddPatientPersonDirectory = new javax.swing.JTable();
-        btnMakePatient = new javax.swing.JButton();
+        btnAddPatient = new javax.swing.JButton();
+        lblBloodPressureDiastolic = new javax.swing.JLabel();
+        txtPatientBloodPressureDiastolic = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablePatientDirectoryData = new javax.swing.JTable();
-        btnAddPatient = new javax.swing.JButton();
 
         lblPatientName.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPatientName.setText("Patient Name");
@@ -125,8 +112,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         lblPatientClinicNumber.setText("Patient ID");
 
         comboBoxPatientCity.setEditable(true);
-        comboBoxPatientCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "NewYork", "Worcester", "Springfield", "Cambridge", "Lowell", " " }));
-        comboBoxPatientCity.setSelectedIndex(-1);
+        comboBoxPatientCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "NewYork", "Worcester", "Springfield", "Cambridge", "Lowell" }));
 
         comboBoxPatientCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allston", "Back Bay", "Mission Hill", "Roxbury" }));
         comboBoxPatientCommunity.setSelectedIndex(-1);
@@ -144,7 +130,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         lblBodyTemperature2.setText("Body Temperature");
 
-        lblBloodPressure2.setText("Blood Pressure");
+        lblBloodPressureSystolic.setText("Blood Pressure Systolic");
 
         lblHeartRate2.setText("Heart Rate");
 
@@ -152,11 +138,30 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
         lblDate2.setText("Date");
 
+        btnAddPatient.setText("Add Patient");
+        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientActionPerformed(evt);
+            }
+        });
+
+        lblBloodPressureDiastolic.setText("Blood Pressure Diastolic");
+
+        txtPatientBloodPressureDiastolic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientBloodPressureDiastolicActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(438, 438, 438)
+                .addComponent(btnAddPatient)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblPatientName)
@@ -189,19 +194,22 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                             .addComponent(comboBoxPatientCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(comboBoxPatientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(87, 87, 87)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBodyTemperature2)
-                            .addComponent(lblBloodPressure2)
+                            .addComponent(lblBloodPressureSystolic)
                             .addComponent(lblHeartRate2)
                             .addComponent(lblBodyWeight2)
-                            .addComponent(lblDate2))
+                            .addComponent(lblDate2)
+                            .addComponent(lblBloodPressureDiastolic))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtVisitDate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPatientBodyWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPatientHeartRate, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPatientBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPatientBodyTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtPatientBloodPressureSystolic, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPatientBodyTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPatientBloodPressureDiastolic, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(175, 175, 175))
         );
 
@@ -235,7 +243,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblResidence)
                             .addComponent(txtPatientResidence, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCity)
@@ -248,14 +256,18 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblPatientClinicNumber)
                             .addComponent(txtPatientClinicId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblBodyTemperature2)
                             .addComponent(txtPatientBodyTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblBloodPressure2)
-                            .addComponent(txtPatientBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblBloodPressureSystolic)
+                            .addComponent(txtPatientBloodPressureSystolic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPatientBloodPressureDiastolic, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblBloodPressureDiastolic))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHeartRate2)
@@ -267,106 +279,53 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDate2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtVisitDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38))))
+                            .addComponent(txtVisitDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddPatient)
+                .addContainerGap())
         );
-
-        jTableAddPatientPersonDirectory.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Name", "Age", "Gender", "Contact Number", "Residence", "Community", "City"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jTableAddPatientPersonDirectory.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableAddPatientPersonDirectoryMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jTableAddPatientPersonDirectory);
-
-        btnMakePatient.setText("Make Patient");
-        btnMakePatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMakePatientActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel1.setText("ADD PATIENT");
 
         jTablePatientDirectoryData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "Age", "Gender", "Contact", "Residence", "Community", "City", "Patient Id", "Blood Pressure", "Body Temperature", "Heart Rate", "Body Weight", "Date"
+                "Name", "Age", "Gender", "Contact", "Residence", "Community", "City", "Patient Id", "Body Temperature", "Systolic BP", "Diastolic BP", "Heart Rate", "Body Weight", "Date"
             }
         ));
         jScrollPane2.setViewportView(jTablePatientDirectoryData);
-
-        btnAddPatient.setText("Add Patient");
-        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddPatientActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(438, 438, 438)
-                        .addComponent(btnMakePatient)))
+                .addGap(439, 439, 439)
+                .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(460, 460, 460)
-                .addComponent(btnAddPatient)
-                .addContainerGap(476, Short.MAX_VALUE))
-            .addComponent(jScrollPane2)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnMakePatient)
-                .addGap(18, 18, 18)
+                .addGap(34, 34, 34)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddPatient)
-                .addGap(29, 29, 29)
+                .addGap(47, 47, 47)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addContainerGap(451, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -388,48 +347,6 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private void jRadioButtonPOthersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonPOthersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButtonPOthersActionPerformed
-
-    private void jTableAddPatientPersonDirectoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableAddPatientPersonDirectoryMouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jTableAddPatientPersonDirectoryMouseClicked
-
-    private void btnMakePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakePatientActionPerformed
-        // TODO add your handling code here:
-        row= jTableAddPatientPersonDirectory.getSelectedRow();
-        column=jTableAddPatientPersonDirectory.getSelectedColumn();
-        System.out.println(row+","+column);
-
-        txtPatientName.setText(defaultTableModel.getValueAt(row, 0).toString());
-        txtPatientAge.setText(defaultTableModel.getValueAt(row, 1).toString());
-
-        String gender= defaultTableModel.getValueAt(row, 2).toString();
-        if (gender.equals("Male")) {
-            jRadioButtonPMale.setSelected(true);
-
-        } else if(gender.equals("Female")){
-            jRadioButtonPFemale.setSelected(true);
-        }else if(gender.equals("Others")){
-            jRadioButtonPOthers.setSelected(true);
-        }
-
-        txtPatientContactNumber.setText(defaultTableModel.getValueAt(row, 3).toString());
-        txtPatientResidence.setText(defaultTableModel.getValueAt(row, 4).toString());
-
-        String communityName = defaultTableModel.getValueAt(row, 5).toString();
-        for (int i = 0; i < (comboBoxPatientCommunity.getItemCount()); i++) {
-            if (comboBoxPatientCommunity.getItemAt(i).equalsIgnoreCase(communityName)) {
-                comboBoxPatientCommunity.setSelectedIndex(i);
-            }
-        }
-        String cityName = defaultTableModel.getValueAt(row, 6).toString();
-        for (int i = 0; i < (comboBoxPatientCity.getItemCount()); i++) {
-            if (comboBoxPatientCity.getItemAt(i).equalsIgnoreCase(cityName)) {
-                comboBoxPatientCity.setSelectedIndex(i);
-            }
-        }
-
-    }//GEN-LAST:event_btnMakePatientActionPerformed
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
@@ -455,68 +372,51 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                 gender="Other";
             }}
             long contactNumber= Long.parseLong(txtPatientContactNumber.getText());
-
             String cityName= comboBoxPatientCity.getSelectedItem().toString();
             String CommunityName = comboBoxPatientCommunity.getSelectedItem().toString();
             String residence = txtPatientResidence.getText();
-            
-
             int patientClinicId = Integer.parseInt(txtPatientClinicId.getText());
             
             double bodyTemperature = Double.parseDouble(txtPatientBodyTemperature.getText());
-            double bloodPressure = Double.parseDouble(txtPatientBloodPressure.getText());
+            double bloodPressureSystolic = Double.parseDouble(txtPatientBloodPressureSystolic.getText());
+            double bloodPressureDiastolic = Double.parseDouble(txtPatientBloodPressureDiastolic.getText());
             double heartRate = Double.parseDouble(txtPatientHeartRate.getText());
             double bodyWeight = Double.parseDouble(txtPatientBodyWeight.getText());
             String date = txtVisitDate.getText();
+            
+            VitalSigns uc = vitalSignHistory.addNewPatient();
+            uc.setPatientName(patientName);
+            uc.setPatientAge(patientAge);
+            uc.setPatientGender(gender);
+            uc.setContactNumber(contactNumber);
+            uc.setResidence(residence);
+            uc.setCommunity(CommunityName);
+            uc.setCity(cityName);
+            uc.setPatientId(patientClinicId);
+            uc.setContactNumber(contactNumber);
+           uc.setBodyTemperature(bodyTemperature);
+           uc.setBloodPressureSystolic(bloodPressureSystolic);
+           uc.setBloodPressureDiastolic(bloodPressureDiastolic);
+           uc.setHeartRate(heartRate);
+           uc.setWeight(bodyWeight);
+           uc.setDate(date);
            
-//            VitalSignHistory vsh = new VitalSignHistory(bodyTemperature,bloodPressure,heartRate,bodyWeight,date);
-//            patient = new Patient(patientClinicId,doctorName, (VitalSignHistory) vitalSigns,patientName,patientAge,gender,contactNumber,residence,CommunityName,cityName);
-//            patientDirectoryArrayList.addNewPatientDetails();
-  
-              VitalSignHistory vitalSignHistory = new VitalSignHistory();
-              VitalSigns vitalSigns = new VitalSigns(bodyTemperature,bloodPressure,heartRate,bodyWeight,patientClinicId);
-              Encounter encounter = new Encounter(date,vitalSigns);
-              vitalSignHistory.addNewVitalSigns(encounter);
-              Patient patient = new Patient(vitalSignHistory,patientName,patientAge,gender,contactNumber,residence,CommunityName,cityName);
-              patientDirectory.addNewPatientDetails(patient);
-              
-//              vitalSignHistory.setId(patientClinicId);
-//              vitalSignHistory.setBodyTemperature(bodyTemperature);
-//              vitalSignHistory.setBloodPressure(bloodPressure);
-//              vitalSignHistory.setHeartRate(heartRate);
-//              vitalSignHistory.setWeight(bodyWeight);
-//              vitalSignHistory.setDate(date);
-              
-              
-//            Patient patient;
-//            patient = patientDirectory.addNewPatientDetails();
-//            patient.setPersonName(patientName);
-//            patient.setPersonAge(patientAge);
-//            patient.setGender(gender);
-//            patient.setContactNumber(contactNumber);
-//            patient.setHouseAddress(residence);
-//            patient.setCommunityName(CommunityName);
-//            patient.setCityName(cityName);
-//            vitalSignHistory= (VitalSignHistory) patient.addVitalSignHistory();
-//            vitalSignHistory.setId(patientClinicId);
-//            vitalSignHistory.setBodyTemperature(bodyTemperature);
-//            vitalSignHistory.setBloodPressure(bloodPressure);
-//            vitalSignHistory.setHeartRate(heartRate);
-//            vitalSignHistory.setWeight(bodyWeight);
-//            vitalSignHistory.setDate(date);
-                  
             JOptionPane.showMessageDialog(this, "New Person Details Added");
+            
             populatePatientTable();
-//          clearField();
+            clearField();
             
             
 
     }//GEN-LAST:event_btnAddPatientActionPerformed
+
+    private void txtPatientBloodPressureDiastolicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientBloodPressureDiastolicActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientBloodPressureDiastolicActionPerformed
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPatient;
-    private javax.swing.JButton btnMakePatient;
     private javax.swing.JComboBox<String> comboBoxPatientCity;
     private javax.swing.JComboBox<String> comboBoxPatientCommunity;
     private javax.swing.JLabel jLabel1;
@@ -525,11 +425,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JRadioButton jRadioButtonPFemale;
     private javax.swing.JRadioButton jRadioButtonPMale;
     private javax.swing.JRadioButton jRadioButtonPOthers;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableAddPatientPersonDirectory;
     private javax.swing.JTable jTablePatientDirectoryData;
-    private javax.swing.JLabel lblBloodPressure2;
+    private javax.swing.JLabel lblBloodPressureDiastolic;
+    private javax.swing.JLabel lblBloodPressureSystolic;
     private javax.swing.JLabel lblBodyTemperature2;
     private javax.swing.JLabel lblBodyWeight2;
     private javax.swing.JLabel lblCity;
@@ -543,7 +442,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPatientName;
     private javax.swing.JLabel lblResidence;
     private javax.swing.JTextField txtPatientAge;
-    private javax.swing.JTextField txtPatientBloodPressure;
+    private javax.swing.JTextField txtPatientBloodPressureDiastolic;
+    private javax.swing.JTextField txtPatientBloodPressureSystolic;
     private javax.swing.JTextField txtPatientBodyTemperature;
     private javax.swing.JTextField txtPatientBodyWeight;
     private javax.swing.JTextField txtPatientClinicId;
@@ -554,56 +454,43 @@ public class AddPatientJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtVisitDate;
     // End of variables declaration//GEN-END:variables
 
-    private void populatePersonTable() {
-        
-        defaultTableModel = (DefaultTableModel)jTableAddPatientPersonDirectory.getModel();
-        defaultTableModel.setRowCount(0);
-        
-        for(Person person : personDirectory.getPersonDirectoryArrayList()){
-            Object[] row = new Object[7];
-            row[0]= person;
-            row[1]= person.getPersonAge();
-            row[2]= person.getGender();
-            row[3]= person.getContactNumber();
-            row[4]= person.getHouseAddress();
-            row[5]= person.getCommunityName();
-            row[6]= person.getCityName();
-            
-            defaultTableModel.addRow(row); 
-    
-        }
-    }   
-
-    @SuppressWarnings("empty-statement")
     private void populatePatientTable() {
-     defaultTableModel = (DefaultTableModel)jTablePatientDirectoryData.getModel();
+        defaultTableModel = (DefaultTableModel)jTablePatientDirectoryData.getModel();
         defaultTableModel.setRowCount(0);
         
-//        int j;
-//        for(j = 0 ; j< patientDirectory.getPatientDirectoryArrayList().size();j++);
-//        {
-////            System.out.println(patientDirectory.getPatientDirectoryArrayList().get(j).getCityName());
-//            Patient cs =  patientDirectory.getPatientDirectoryArrayList().get(j);
-//            Patient cs = patientDirectory.getPatientDirectoryArrayList();
-            for(VitalSignHistory vsh : cs.getVitalSignHistory()){
-            Object[] row ={
-            cs.getPersonName(),
-            cs.getPersonAge(),
-            cs.getGender(),
-            cs.getContactNumber(),
-            cs.getHouseAddress(),
-            cs.getCommunityName(),
-            cs.getCityName(),
-            vsh.getDate(),
-            vsh.getVitalSigns().getId(),
-            vsh.getVitalSigns().getBodyTemperature(),
-            vsh.getVitalSigns().getBloodPressure(),
-            vsh.getVitalSigns().getHeartRate(),
-            vsh.getVitalSigns().getWeight(),
-            
-            };
-            defaultTableModel.addRow(row);     
-            
-        }
-    } 
+        for(VitalSigns uc : vitalSignHistory.getVitalSignArrayList()){
+            Object[] row = new Object[14];
+            row[0]= uc;
+            row[1]= uc.getPatientAge();
+            row[2]= uc.getPatientGender();
+            row[3]= uc.getContactNumber();
+            row[4]= uc.getResidence();
+            row[5]= uc.getCommunity();
+            row[6]= uc.getCity();
+            row[7]= uc.getPatientId();
+            row[8]= uc.getBodyTemperature();
+            row[9]= uc.getBloodPressureSystolic();
+            row[10]= uc.getBloodPressureDiastolic();
+            row[11]= uc.getHeartRate();
+            row[12]=uc.getWeight();
+            row[13]= uc.getDate();
+            defaultTableModel.addRow(row); 
+        }  
+    }
+
+    private void clearField() {
+        txtPatientName.setText("");
+        txtPatientAge.setText("");
+        txtPatientContactNumber.setText("");
+        txtPatientResidence.setText("");
+        comboBoxPatientCity.setSelectedIndex(-1);
+        comboBoxPatientCommunity.setSelectedIndex(-1);
+        txtPatientClinicId.setText("");
+        txtPatientBodyTemperature.setText("");
+        txtPatientBloodPressureSystolic.setText("");
+        txtPatientBloodPressureDiastolic.setText("");
+        txtPatientHeartRate.setText("");
+        txtPatientBodyWeight.setText("");
+        txtVisitDate.setText("");
+    }  
 }

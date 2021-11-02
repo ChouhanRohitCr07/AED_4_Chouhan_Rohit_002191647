@@ -19,15 +19,14 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatePersonJPanel
      */
-    JPanel jWorkAreaPane;
+    
     PersonDirectory personDirectory;
     int row, column;
     DefaultTableModel defaultTableModel;
     
     
-    public CreatePersonJPanel(JPanel jWorkAreaPane, PersonDirectory personDirectory) {
+    public CreatePersonJPanel(PersonDirectory personDirectory) {
         initComponents();
-        this.jWorkAreaPane = jWorkAreaPane; 
         this.personDirectory = personDirectory;
         populateTable();
     }

@@ -10,6 +10,7 @@ import model.Patient;
 import model.PatientDirectory;
 import model.Person;
 import model.PersonDirectory;
+import model.VitalSignHistory;
 import model.VitalSigns;
 
 /**
@@ -31,6 +32,10 @@ public class ViewPersonDirectoryJPanel extends javax.swing.JPanel {
         initComponents();
         this.personDirectoryArrayList = personDirectoryArrayList;
         populateTable();
+    }
+
+    ViewPersonDirectoryJPanel(VitalSignHistory vitalSignHistory) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**

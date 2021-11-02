@@ -4,41 +4,38 @@
  */
 package model;
 
-import java.awt.List;
 import java.util.ArrayList;
 
 /**
  *
  * @author jarvis
  */
-public class VitalSignHistory{
+public class VitalSignHistory extends VitalSigns{
     
+//    Encounter encounter;
+    ArrayList<VitalSigns> vitalSignArrayList;
     
-    ArrayList<Encounter> encounterArrayList;
-
     public VitalSignHistory() {
-        encounterArrayList = new ArrayList<>();
+        this.vitalSignArrayList = new ArrayList<VitalSigns>();
+    }
+   
+    public VitalSigns addNewPatient(){
+    VitalSigns vitalSigns = new VitalSigns();
+    vitalSignArrayList.add(vitalSigns);
+    return vitalSigns;
+    }
+    
+    
+    
+
+    public ArrayList<VitalSigns> getVitalSignArrayList() {
+        return vitalSignArrayList;
     }
 
-//    public VitalSignHistory(Encounter encounter) {
-//        this.encounter = encounter;
-//    }
-    
-    
-    public ArrayList<Encounter> getEncounterArrayList() {
-        return encounterArrayList;
-    }
-
-    public void setEncounterArrayList(ArrayList<Encounter> encounterArrayList) {
-        this.encounterArrayList = encounterArrayList;
-    }
-    
-//   
-     public Encounter addNewVitalSigns(Encounter encounter){
-    
-//        Encounter newEncounter= new Encounter();
-        this.encounterArrayList.add(encounter);
-        return encounter;
+    public void setVitalSignArrayList(ArrayList<VitalSigns> vitalSignArrayList) {
+        this.vitalSignArrayList = vitalSignArrayList;
     }
    
 }
+
+    
