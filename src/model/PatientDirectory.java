@@ -30,9 +30,9 @@ public class PatientDirectory {
      
     public Patient addNewPatientDetails(Patient patient) {
         
-        Patient newPatientDirectory = new Patient();
-        patientDirectoryArrayList.add(newPatientDirectory);
-        return newPatientDirectory;
+//        Patient newPatientDirectory = new Patient();
+        patientDirectoryArrayList.add(patient);
+        return patient;
        
     }
     

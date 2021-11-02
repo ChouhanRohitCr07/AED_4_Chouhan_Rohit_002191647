@@ -4,24 +4,25 @@
  */
 package model;
 
+import java.awt.List;
 import java.util.ArrayList;
 
 /**
  *
  * @author jarvis
  */
-public class VitalSignHistory extends Encounter{
+public class VitalSignHistory{
     
-    Encounter encounter;
+    
     ArrayList<Encounter> encounterArrayList;
 
     public VitalSignHistory() {
-        encounterArrayList = new ArrayList<Encounter>();
+        encounterArrayList = new ArrayList<>();
     }
 
-    public VitalSignHistory(Encounter encounter) {
-        this.encounter = encounter;
-    }
+//    public VitalSignHistory(Encounter encounter) {
+//        this.encounter = encounter;
+//    }
     
     
     public ArrayList<Encounter> getEncounterArrayList() {
@@ -31,11 +32,13 @@ public class VitalSignHistory extends Encounter{
     public void setEncounterArrayList(ArrayList<Encounter> encounterArrayList) {
         this.encounterArrayList = encounterArrayList;
     }
-    public Encounter addNewVitalSigns(Encounter encounter){
     
-        Encounter newEncounter= new Encounter();
-        this.encounterArrayList.add(newEncounter);
-        return newEncounter;
+//   
+     public Encounter addNewVitalSigns(Encounter encounter){
+    
+//        Encounter newEncounter= new Encounter();
+        this.encounterArrayList.add(encounter);
+        return encounter;
     }
    
 }

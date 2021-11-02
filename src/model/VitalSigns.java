@@ -16,8 +16,8 @@ public class VitalSigns {
     private double weight;
     private int id;
    
-    public VitalSigns() {
-    }
+//    public VitalSigns() {
+//    }
 
     public VitalSigns(double bodyTemperature, double bloodPressure, double heartRate, double weight, int id) {
         this.bodyTemperature = bodyTemperature;

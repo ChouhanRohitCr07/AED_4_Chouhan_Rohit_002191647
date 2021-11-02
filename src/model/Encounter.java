@@ -10,15 +10,17 @@ import java.util.ArrayList;
  *
  * @author jarvis
  */
-public class Encounter extends VitalSigns{
+public class Encounter{
     
     private String date;
     VitalSigns vitalSigns;
-    private ArrayList<VitalSigns> historyArrayList;
+    Encounter eh;
+    PatientDirectory patientDirectory = new PatientDirectory();
+//    private ArrayList<VitalSigns> historyArrayList;
 
-    public Encounter() {
-        this.historyArrayList = new ArrayList<VitalSigns>();
-    }
+//    public Encounter() {
+//        this.historyArrayList = new ArrayList<VitalSigns>();
+//    }
 
     public Encounter(String date, VitalSigns vitalSigns) {
         this.date = date;
@@ -42,21 +44,12 @@ public class Encounter extends VitalSigns{
     }
     
     
-   
-    public ArrayList<VitalSigns> getHistoryArrayList() {
-        return historyArrayList;
-    }
-
-    public void setHistoryArrayList(ArrayList<VitalSigns> historyArrayList) {
-        this.historyArrayList = historyArrayList;
-    }
-    
-    public VitalSigns addNewVitalSigns(){
-    
-        VitalSigns newVitalSigns= new VitalSigns();
-        historyArrayList.add(newVitalSigns);
-        return newVitalSigns;
-    }
+//    public VitalSigns addNewVitalSigns(){
+//    
+//        VitalSigns newVitalSigns= new VitalSigns();
+//        historyArrayList.add(newVitalSigns);
+//        return newVitalSigns;
+//    }
     @Override
     public String toString(){
     return date;
