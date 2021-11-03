@@ -446,6 +446,7 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         defaultTableModel2 = (DefaultTableModel)jTablePatientSearchResult.getModel();
         defaultTableModel2.setRowCount(0);
+        int count1=0;
         String encounterHistoryPatientId = txtEncounterHistory.getText();
         for (int i = 0; i < vitalSignHistory.getVitalSignArrayList().size(); i++) {
             String selectedId =String.valueOf(vitalSignHistory.getVitalSignArrayList().get(i).getPatientId());
@@ -468,10 +469,12 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
                     vitalSignHistory.getVitalSignArrayList().get(i).getDate()
                 
                     };
+               count1++;
                 defaultTableModel2.addRow(object);
             }
             
         }
+        JOptionPane.showMessageDialog(btnSearchResult, "Total Number of Encounters are " +count1);
     }//GEN-LAST:event_btnEncounterHistoryActionPerformed
 
 

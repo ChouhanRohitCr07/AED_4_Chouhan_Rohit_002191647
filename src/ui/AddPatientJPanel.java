@@ -293,11 +293,9 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(this, "Record Not Found");
                         return;
                     }
+                populatePatientTable();
                     
-        }
-                   
-        populatePatientTable();
-            
+        }       
     }//GEN-LAST:event_btnAddPatientActionPerformed
 
     private void txtPatientBloodPressureDiastolicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientBloodPressureDiastolicActionPerformed
