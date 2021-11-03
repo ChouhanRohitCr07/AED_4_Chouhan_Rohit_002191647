@@ -32,6 +32,7 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         initComponents();
         this.vitalSignHistory = vitalSignHistory;
         this.personDirectory = personDirectory;
+        populatePatientTable();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -240,44 +241,14 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
-//        for(VitalSigns vitalSigns : vitalSignHistory.getVitalSignArrayList()){
-//            
-//            if(txtPatientClinicId.getText().equalsIgnoreCase(String.valueOf(vitalSigns.getPatientId()))){
-//                JOptionPane.showMessageDialog(this, "Duplicate Patient Id Found! Patient Id must be Unique!");
-//                return;
-//            } 
-//        }
+//        
         if(txtPatientClinicId.getText().isEmpty()){
         JOptionPane.showMessageDialog(this, "Patient Id is empty!");
         return;
         }
-//                JOptionPane.showMessageDialog(this, "Duplicate Patient Id Found! Patient Id must be Unique!");
-//                return;
-//            } 
-//        }
-//        String patientName =txtPatientName.getText();
-//        int patientAge = Integer.parseInt(txtPatientAge.getText());
-//
-//        String gender="";
-//        if((jRadioButtonPMale.isSelected()==false)&&(jRadioButtonPFemale.isSelected()==false)&&(jRadioButtonPOthers.isSelected()==false)){
-//            JOptionPane.showMessageDialog(null,"Please select radio button");
-//
-//        }else{
-//            if (jRadioButtonPMale.isSelected()) {
-//                gender="Male";
-//            }else if(jRadioButtonPFemale.isSelected()){
-//                gender="Female";
-//            }else if (jRadioButtonPOthers.isSelected()){
-//                gender="Other";
-//            }}
-//            long contactNumber= Long.parseLong(txtPatientContactNumber.getText());
-//            String cityName= comboBoxPatientCity.getSelectedItem().toString();
-//            String CommunityName = comboBoxPatientCommunity.getSelectedItem().toString();
-//            String residence = txtPatientResidence.getText();
-            
-            long contactNumber= Long.parseLong(txtPatientContactNumber.getText());
-            int patientClinicId = Integer.parseInt(txtPatientClinicId.getText());
-            double bodyTemperature = Double.parseDouble(txtPatientBodyTemperature.getText());
+        long contactNumber= Long.parseLong(txtPatientContactNumber.getText());
+        int patientClinicId = Integer.parseInt(txtPatientClinicId.getText());
+        double bodyTemperature = Double.parseDouble(txtPatientBodyTemperature.getText());
             double bloodPressureSystolic = Double.parseDouble(txtPatientBloodPressureSystolic.getText());
             double bloodPressureDiastolic = Double.parseDouble(txtPatientBloodPressureDiastolic.getText());
             double heartRate = Double.parseDouble(txtPatientHeartRate.getText());
@@ -322,8 +293,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                         JOptionPane.showMessageDialog(this, "Record Not Found");
                         return;
                     }
-                    populatePatientTable();
+                    
         }
+                   
+        populatePatientTable();
             
     }//GEN-LAST:event_btnAddPatientActionPerformed
 
@@ -361,7 +334,10 @@ public class AddPatientJPanel extends javax.swing.JPanel {
         defaultTableModel = (DefaultTableModel)jTablePatientDirectoryData.getModel();
         defaultTableModel.setRowCount(0);
         
+           
         for(VitalSigns uc : vitalSignHistory.getVitalSignArrayList()){
+            
+            
             Object[] row = new Object[14];
             row[0]= uc;
             row[1]= uc.getPatientAge();

@@ -132,7 +132,17 @@ public class MainJFrame extends javax.swing.JFrame {
 
         jSplitPane.setLeftComponent(jControlPane);
 
-        jWorkAreaPane.setLayout(new java.awt.CardLayout());
+        javax.swing.GroupLayout jWorkAreaPaneLayout = new javax.swing.GroupLayout(jWorkAreaPane);
+        jWorkAreaPane.setLayout(jWorkAreaPaneLayout);
+        jWorkAreaPaneLayout.setHorizontalGroup(
+            jWorkAreaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 868, Short.MAX_VALUE)
+        );
+        jWorkAreaPaneLayout.setVerticalGroup(
+            jWorkAreaPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 659, Short.MAX_VALUE)
+        );
+
         jSplitPane.setRightComponent(jWorkAreaPane);
 
         javax.swing.GroupLayout jMainPanelLayout = new javax.swing.GroupLayout(jMainPanel);
@@ -148,7 +158,7 @@ public class MainJFrame extends javax.swing.JFrame {
             jMainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jMainPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSplitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 663, Short.MAX_VALUE)
+                .addComponent(jSplitPane)
                 .addContainerGap())
         );
 

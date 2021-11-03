@@ -424,6 +424,7 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
                     vitalSignHistory.getVitalSignArrayList().get(i).getDate()
                 
                     };
+                    
                 count++;    
                 defaultTableModel1.addRow(object);
                     }  
@@ -509,7 +510,8 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
     
     defaultTableModel = (DefaultTableModel)jTablePatientDirectoryData.getModel();
         defaultTableModel.setRowCount(0);
-        
+   
+            
         for(VitalSigns vc : vitalSignHistory.getVitalSignArrayList()){
             Object[] row = new Object[14];
             row[0]= vc;
