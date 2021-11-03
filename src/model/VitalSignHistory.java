@@ -25,9 +25,6 @@ public class VitalSignHistory extends VitalSigns{
     return vitalSigns;
     }
     
-    
-    
-
     public ArrayList<VitalSigns> getVitalSignArrayList() {
         return vitalSignArrayList;
     }

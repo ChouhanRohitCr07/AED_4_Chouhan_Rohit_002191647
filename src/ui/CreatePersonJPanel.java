@@ -4,6 +4,8 @@
  */
 package ui;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -367,15 +369,37 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
+        for(Person person : personDirectory.getPersonDirectoryArrayList()){
+            
+            if(txtContactNumber.getText().equalsIgnoreCase(String.valueOf(person.getContactNumber()))){
+                JOptionPane.showMessageDialog(this, "Duplicate Contact Number Found! Contact Number must be Unique!");
+                return;
+            } 
+        }
 //        Person p = new Person();
 //        int serialNumber= p.getSerialNumber();
         
+        String personName=txtPersonName.getText();
+        if (personName== null || !personName.matches("^[a-zA-Z ]{1,25}$")) {
+            JOptionPane.showMessageDialog(this, "Invalid Person Name");
+            return;
+        } else{
+            personName = txtPersonName.getText();
+        }  
         
-        String personName =txtPersonName.getText();
-        int age = Integer.parseInt(txtPersonAge.getText());
-        
-        String gender="";
+         int age= Integer.parseInt(txtPersonAge.getText());
+         String ageString = String.valueOf(age);
+         String patterninput = "^[0-9]{1,2}$";
+         Pattern pattern = Pattern.compile(patterninput);
+         Matcher matchAge = pattern.matcher(ageString);
+       
+           if (ageString== null || ageString.trim().isEmpty()|| !matchAge.matches()) {
+            JOptionPane.showMessageDialog(this, "Invalid Age ");
+            return;
+        } else{
+            ageString = txtPersonAge.getText();
+        }  
+        String gender="";  
         if((jRadioButtonMale.isSelected()==false)&&(jRadioButtonFemale.isSelected()==false)&&(jRadioButtonOthers.isSelected()==false)){
         JOptionPane.showMessageDialog(null,"Please select radio button");
         
@@ -387,18 +411,48 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         }else{
                 gender="Other";
             }}
-        long contactNumber= Long.parseLong(txtContactNumber.getText());
+
+         long contactNumber= Long.parseLong(txtContactNumber.getText());
+         String s = String.valueOf(contactNumber);
+         String patterninput1 = "^[0-9]{10}$";
+         Pattern pattern1 = Pattern.compile(patterninput1);
+         Matcher match = pattern1.matcher(s);
+       
+           if (s== null || s.trim().isEmpty()|| !match.matches()) {
+            JOptionPane.showMessageDialog(this, "Invalid Contact Number");
+            return;
+        } else{
+            s = txtContactNumber.getText();
+        }  
+        String cityName="";
+        if (comboBoxCity.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select City");
+            return;
+        } else{
+            cityName = comboBoxCity.getSelectedItem().toString();
+        }
+        String CommunityName="";
+        if (comboBoxCommunity.getSelectedIndex()==-1) {
+            JOptionPane.showMessageDialog(this, "Select Community");
+            return;
+        } else{
+            CommunityName = comboBoxCommunity.getSelectedItem().toString();
+        }
         
-        String cityName= comboBoxCity.getSelectedItem().toString();
-        String CommunityName = comboBoxCommunity.getSelectedItem().toString();
-        String residence = txtResidence.getText();
-        
+       String houseAddress= txtResidence.getText();
+        if (houseAddress.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Residence can't be Empty");
+            return;
+        } else{
+            houseAddress = txtResidence.getText();
+        }  
+   
         Person person = personDirectory.addNewPersonDetails();
         person.setPersonName(personName);
         person.setPersonAge(age);
         person.setGender(gender);
         person.setContactNumber(contactNumber);
-        person.setHouseAddress(residence);
+        person.setHouseAddress(houseAddress);
         person.setCommunityName(CommunityName);
         person.setCityName(cityName);
    
@@ -410,6 +464,17 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex =jTablePersonDirectory.getSelectedRow();
+        if(selectedRowIndex<0){
+        JOptionPane.showMessageDialog(this,"Please select a row to delete.");
+        return;
+        }
+        defaultTableModel =(DefaultTableModel) jTablePersonDirectory.getModel();
+        Person person = (Person) defaultTableModel.getValueAt(selectedRowIndex, 0);
+        personDirectory.deletePersonDetails(person);
+        JOptionPane.showMessageDialog(this,"Person details deleted..");
+        populateTable();
+        
         
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -423,9 +488,7 @@ public class CreatePersonJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
         row= jTablePersonDirectory.getSelectedRow();
-        column=jTablePersonDirectory.getSelectedColumn();
-        System.out.println(row+","+column);
-        
+        column=jTablePersonDirectory.getSelectedColumn(); 
         txtPersonName.setText(defaultTableModel.getValueAt(row, 0).toString());
         txtPersonAge.setText(defaultTableModel.getValueAt(row, 1).toString());
         

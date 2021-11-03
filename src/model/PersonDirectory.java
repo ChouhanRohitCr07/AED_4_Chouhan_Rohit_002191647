@@ -31,4 +31,8 @@ public class PersonDirectory {
         personDirectoryArrayList.add(newPersonDetails);
         return newPersonDetails;
     }
+
+    public void deletePersonDetails(Person person) {
+        personDirectoryArrayList.remove(person); 
+    }
 }

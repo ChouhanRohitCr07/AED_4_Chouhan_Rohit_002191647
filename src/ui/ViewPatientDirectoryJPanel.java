@@ -198,10 +198,11 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
                                             .addGroup(jSearchPanelLayout.createSequentialGroup()
                                                 .addComponent(txtPatientMaxAge, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGap(72, 72, 72)
-                                                .addComponent(btnSearchResult)))))))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                                                .addComponent(btnSearchResult)))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jSearchPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 6, Short.MAX_VALUE)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1213, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -357,6 +358,7 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
         String selectedCommunity = comboBoxSelectedCommunity.getSelectedItem().toString();
         int minimum; 
         int maximum;  
+        int count=0;
         if (txtPatientMinAge.getText()== null || txtPatientMinAge.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Enter Minimum Range");
             return;
@@ -378,7 +380,8 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
                     double matchingSystolic = vitalSignHistory.getVitalSignArrayList().get(i).getBloodPressureSystolic();
                     double matchingDiastolic = vitalSignHistory.getVitalSignArrayList().get(i).getBloodPressureDiastolic();
                      if(matchingSystolic>120 || matchingSystolic < 90 || matchingDiastolic>80){
-                
+                         
+                         
                     Object[] object= {vitalSignHistory.getVitalSignArrayList().get(i).getPatientName(),
                     vitalSignHistory.getVitalSignArrayList().get(i).getPatientAge(),
                     vitalSignHistory.getVitalSignArrayList().get(i).getPatientGender(),
@@ -394,12 +397,14 @@ public class ViewPatientDirectoryJPanel extends javax.swing.JPanel {
                     vitalSignHistory.getVitalSignArrayList().get(i).getWeight(),
                     vitalSignHistory.getVitalSignArrayList().get(i).getDate()
                 
-                };
+                    };
+                count++;    
                 defaultTableModel1.addRow(object);
-                    }
+                    }  
                 }
             } 
         }
+        JOptionPane.showMessageDialog(btnSearchResult, "Total Number of Abnormal Patients are " +count);
     }//GEN-LAST:event_btnSearchResultActionPerformed
 
     private void jTablePatientSearchResultMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablePatientSearchResultMouseClicked

@@ -195,7 +195,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void jBtnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAddPatientActionPerformed
         // TODO add your handling code here:
-        AddPatientJPanel addPatientJPanel= new AddPatientJPanel(vitalSignHistory);
+        AddPatientJPanel addPatientJPanel= new AddPatientJPanel(vitalSignHistory,personDirectory);
         jSplitPane.setRightComponent(addPatientJPanel);
         
     }//GEN-LAST:event_jBtnAddPatientActionPerformed

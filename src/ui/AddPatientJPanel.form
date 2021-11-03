@@ -66,48 +66,13 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
-                      <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblPatientName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblPatientAge" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblContactNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblResidence" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtPatientAge" linkSize="1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="txtPatientContactNumber" linkSize="1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jRadioButtonPMale" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonPFemale" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="jRadioButtonPOthers" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="txtPatientName" linkSize="1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
-                          <Component id="txtPatientResidence" linkSize="1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="219" pref="454" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCommunity" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblPatientClinicNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCity" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtPatientClinicId" linkSize="1" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                  <Component id="comboBoxPatientCity" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxPatientCommunity" linkSize="1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="lblPatientClinicNumber" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                              <Component id="txtPatientClinicId" linkSize="1" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
@@ -132,92 +97,66 @@
                       </Group>
                       <EmptySpace min="-2" pref="175" max="-2" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
+                              <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                              <Component id="lblContactNumber" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                              <Component id="txtPatientContactNumber" linkSize="1" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientAge" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                      <Component id="jRadioButtonPMale" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonPFemale" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonPOthers" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblResidence" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientResidence" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxPatientCity" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="comboBoxPatientCommunity" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblPatientClinicNumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientClinicId" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="67" max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblBodyTemperature2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientBodyTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblBloodPressureSystolic" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientBloodPressureSystolic" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="txtPatientBloodPressureDiastolic" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblBloodPressureDiastolic" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblHeartRate2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientHeartRate" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblBodyWeight2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtPatientBodyWeight" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDate2" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
-                                  <Component id="txtVisitDate" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientContactNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPatientClinicNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientClinicId" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblBodyTemperature2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientBodyTemperature" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblBloodPressureSystolic" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientBloodPressureSystolic" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtPatientBloodPressureDiastolic" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblBloodPressureDiastolic" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblHeartRate2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientHeartRate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblBodyWeight2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPatientBodyWeight" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblDate2" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="txtVisitDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <Component id="btnAddPatient" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -225,30 +164,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblPatientName">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Patient Name"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPatientAge">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Patient Age"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblGender">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Gender"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="lblContactNumber">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -257,40 +172,7 @@
                 <Property name="text" type="java.lang.String" value="Contact Number"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblResidence">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Residence"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPatientName">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPatientAge">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPatientAgeActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JTextField" name="txtPatientContactNumber">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtPatientResidence">
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCity">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="City"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCommunity">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Lucida Grande" size="14" style="0"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Community"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPatientClinicNumber">
               <Properties>
@@ -301,58 +183,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtPatientClinicId">
-            </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxPatientCity">
-              <Properties>
-                <Property name="editable" type="boolean" value="true"/>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Boston"/>
-                    <StringItem index="1" value="NewYork"/>
-                    <StringItem index="2" value="Worcester"/>
-                    <StringItem index="3" value="Springfield"/>
-                    <StringItem index="4" value="Cambridge"/>
-                    <StringItem index="5" value="Lowell"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="comboBoxPatientCommunity">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Allston"/>
-                    <StringItem index="1" value="Back Bay"/>
-                    <StringItem index="2" value="Mission Hill"/>
-                    <StringItem index="3" value="Roxbury"/>
-                  </StringArray>
-                </Property>
-                <Property name="selectedIndex" type="int" value="-1"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonPMale">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Male"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonPFemale">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Female"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JRadioButton" name="jRadioButtonPOthers">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Others"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonPOthersActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblBodyTemperature2">
               <Properties>
@@ -427,7 +257,7 @@
             <Component class="javax.swing.JTable" name="jTablePatientDirectoryData">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="14" rowCount="4">
+                  <Table columnCount="14" rowCount="8">
                     <Column editable="true" title="Name" type="java.lang.Object"/>
                     <Column editable="true" title="Age" type="java.lang.Object"/>
                     <Column editable="true" title="Gender" type="java.lang.Object"/>
