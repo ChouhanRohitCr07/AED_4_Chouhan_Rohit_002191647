@@ -7,6 +7,7 @@ package ui;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import model.Person;
 import model.PersonDirectory;
 import model.VitalSignHistory;
 import model.VitalSigns;
@@ -239,11 +240,20 @@ public class AddPatientJPanel extends javax.swing.JPanel {
 
     private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
         // TODO add your handling code here:
-//        for(Cars cr : carsList){
-//            if(txtSerialNumber.getText().equalsIgnoreCase(cr.serialNumber)){
-//                JOptionPane.showMessageDialog(this, "Duplicate Serial Number Found! Serial Number must be Unique!");
+//        for(VitalSigns vitalSigns : vitalSignHistory.getVitalSignArrayList()){
+//            
+//            if(txtPatientClinicId.getText().equalsIgnoreCase(String.valueOf(vitalSigns.getPatientId()))){
+//                JOptionPane.showMessageDialog(this, "Duplicate Patient Id Found! Patient Id must be Unique!");
 //                return;
-//            }
+//            } 
+//        }
+        if(txtPatientClinicId.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this, "Patient Id is empty!");
+        return;
+        }
+//                JOptionPane.showMessageDialog(this, "Duplicate Patient Id Found! Patient Id must be Unique!");
+//                return;
+//            } 
 //        }
 //        String patientName =txtPatientName.getText();
 //        int patientAge = Integer.parseInt(txtPatientAge.getText());
@@ -283,8 +293,8 @@ public class AddPatientJPanel extends javax.swing.JPanel {
                 //long contactNumber= Long.parseLong(txtPatientContactNumber.getText());
                 String contactNumberString=String.valueOf(contactNumber);
                 String contactCheckString=String.valueOf(contactCheck);
-                System.out.println(contactNumberString +"Line 290");
-                System.out.println(contactCheckString +"Line 291");
+//                System.out.println(contactNumberString +"Line 290");
+//                System.out.println(contactCheckString +"Line 291");
                 
                 if (contactNumberString.equalsIgnoreCase(contactCheckString)) {
                     uc.setPatientName(personDirectory.getPersonDirectoryArrayList().get(i).getPersonName());
